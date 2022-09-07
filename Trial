@@ -1,0 +1,99 @@
+import tkinter as tk
+import tkinter
+from tkinter.simpledialog import askstring, askinteger
+from tkinter.messagebox import showerror
+from PIL import Image, ImageTk
+#rememner to add all the library before running!
+def display_3():
+    global gen
+    ans = askstring('Enter String','what is your gender, male or female?')
+    # genderInput = input("Enter 'M' for Male or 'F' for Female\n").upper()
+    if ans is not None and ans.strip():
+        #print(ans)
+        gen = ans
+    elif ans is not None:
+        showerror('Invalid String', 'You must enter male or female')
+    if gen == "male":
+        print(f'You are a ', ans)
+    elif gen == "female":
+        print(f'You are a ', ans)
+
+    # Ask String Window (Title, Prompt)
+    # Returned value is a string
+    #ans = askstring('Enter String', 'Please enter any set of characters')
+    # If the user clicks cancel, None is returned
+    # .strip is used to ensure the user doesn't
+    # enter only spaces ' '
+
+def display_4():
+    global d
+    # Ask Integer Window (Title, Prompt)
+    # Returned value is an int
+    ans = askinteger('Enter age', 'Please enter an integer')
+    # If the user clicks cancel, None is returned
+    if ans is not None:
+        #print(ans)
+        d = ans
+    if d <= 7:
+        print(f'You are a toddler', ans, 'years old')
+    elif 7 < d < 12:
+        print(f'You are a child who is', ans, "years old")
+    elif 13 <= d <= 18:
+        print(f'You are a teenager who is', ans, "years old")
+    elif 18 < d < 35:
+        print(f'You are a Young Adult who is', ans, "years old")
+    elif 35 < d < 55:
+        print(f'You are a Adult who is', ans, "years old")
+    elif d > 55:
+        print(f'You are a Elderly who is', ans, "years old")
+
+# Create the main window
+root = tk.Tk()
+window = tk.Tk()
+
+btn_3 = tk.Button(root, text = "Enter String", command = display_3)
+btn_4 = tk.Button(root, text = "Enter Integer", command = display_4)
+# put the button into the window
+btn_3.pack()
+btn_4.pack()
+
+window.mainloop()
+
+choosen_age = d
+print(choosen_age)
+chosen_gender = gen
+print(chosen_gender)
+
+if chosen_gender == ('female'):
+    # creating main window
+    root = tkinter.Tk()
+
+    # loading the image
+    img = ImageTk.PhotoImage(Image.open("tshirt.jpg"))
+
+    # reading the image
+    panel = tkinter.Label(root, image=img)
+
+    # setting the application
+    panel.pack(side="bottom", fill="both",
+               expand="yes")
+
+    # running the application
+    root.mainloop()
+else:
+    if chosen_gender == ('male'):
+        # creating main window
+        root = tkinter.Tk()
+
+        # loading the image
+        img = ImageTk.PhotoImage(Image.open("tshirt2.jpg"))
+
+        # reading the image
+        panel = tkinter.Label(root, image=img)
+
+        # setting the application
+        panel.pack(side="bottom", fill="both",
+                   expand="yes")
+
+        # running the application
+        root.mainloop()
