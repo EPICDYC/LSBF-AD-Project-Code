@@ -49,12 +49,13 @@ if response.status_code == 200:
     wind_report = data['wind']
 
     print(f"{CITY:-^35}")
-    print(f"Temperature: {temperature}")
-    print(f"Feel Like: {temp_feel_like}")
+    print(f"Temperature: {temperature} degree celsius")
+    print(f"Feel Like: {temp_feel_like} degree celsius")
     print(f"Humidity: {humidity}")
     print(f"Weather Report: {weather_report[0]['description']}")
     print(f"Wind Speed: {wind_report['speed']}")
 else:
     # showing the error message
     print("Error in the HTTP request")
+
 
